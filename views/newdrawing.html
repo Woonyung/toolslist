@@ -1,0 +1,28 @@
+<!-- new page -->
+
+<div id="toolBox">
+	<h2>TOOL/ Brushes Test</h2>
+
+	<!-- TOOLS -->
+	<a href="#" id="tool1">Thin</a><br>
+	<a href="#" id="tool2">Thick</a><br>
+	<a href="#" id="tool3">WEIRD BRUSH</a><br>
+	<a href="#" id="tool4">Eyedropper</a><br>
+	<a href="#" id="tool5">cloud shape</a><br>
+	<a href="#" id="tool6">brush end test</a><br>
+
+	<!-- MENUS -->
+	=====================<br>
+	<a href="/gallery"><b>GALLERY</b></a><br>
+	<a href="#" id="save"><b>SAVE</b></a><br>
+</div> <!-- toolbox -->
+
+
+<div id="bottomArea">
+	{{#infoData}}
+		<li><img onmousedown="return false" class='previousDrawing crop' src={{imageData}}></li>
+	{{/infoData}} 
+	<li><canvas id="myCanvas"></canvas></li>
+
+</div> 
+<script type="text/javascript" src="public/js/drawing.js"></script>

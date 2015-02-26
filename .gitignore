@@ -1,0 +1,5 @@
+.DS_Store
+.env
+stylesheet.scss
+stylesheet.css.map
+.sass-cache

@@ -1,0 +1,67 @@
+body {
+  background-color: #404040;
+}
+
+#bottomArea {
+  white-space: nowrap;
+}
+
+.bg {
+  z-index: 300;
+  width: 100%;
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+}
+
+#backgroundCanvas {
+  width: 100%;
+  background-color: #404040;
+}
+
+#toolBox {
+  position: absolute;
+  z-index: 10;
+  float: right;
+  right: 10px;
+  width: 30%;
+  background-color: yellow;
+}
+
+.previousDrawing {
+  width: 800px;
+  height: 500px;
+  vertical-align: top;
+  opacity: 0.5;
+}
+
+.crop {
+  margin: 0 0 0 -600px;
+}
+
+#myCanvas {
+  width: 800px;
+  height: 500px;
+  background-color: white;
+}
+
+ul {
+  margin-left: -34px;
+}
+
+li {
+  display: inline;
+  margin-right: -3px;
+}
+
+.galleryImages {
+  width: 800px;
+  height: 500px;
+}
+
+#makeNew {
+  position: absolute;
+  height: 500px;
+}
+
+/*# sourceMappingURL=stylesheet.css.map */
