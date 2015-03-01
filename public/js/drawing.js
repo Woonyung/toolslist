@@ -85,11 +85,31 @@ function drawCanvas(){
 // TOOLS //
 ////////////////////////////////////////////////////
 
-var tool1, tool2, tool3, tool4, 
+var tool0, tool1, tool2, tool3, tool4, 
     tool5, tool6, tool7, tool8,
-    tool9;
+    tool9, tool10, tool11, tool12;
 
 // Create drawing tools
+
+// ERASER
+tool0 = new Tool();
+tool0.minDistance = 3;
+tool0.onMouseDown = function(event){
+    path = new Path({
+        strokeColor: 'white',
+        strokeJoin : 'round',
+        strokeCap :'round',
+        strokeWidth: 40 // stroke weight  
+    });
+}
+
+tool0.onMouseDrag = function(event){
+    path.add(event.point);
+    path.smooth();
+}
+
+
+//////
 // TOOL 1 = brushline thin
 tool1 = new Tool();
 
@@ -407,6 +427,7 @@ tool12.onMouseDrag = function(event){
 
 //////////////////////////////////
 // Whenever buttons are pressed
+activateTools("#tool0", tool0);
 activateTools("#tool1", tool1);
 activateTools("#tool2", tool2);
 activateTools("#tool3", tool3);
