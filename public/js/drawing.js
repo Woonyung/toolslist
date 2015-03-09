@@ -7,7 +7,7 @@
 
 //canvasWH
 var width = 800;
-var height = 500;
+var height = 600;
 
 var path;
 var frame;
@@ -37,10 +37,17 @@ $(document).ready(function(){
     // SAVE FUNCTION
     $('#save').click(function(){
         var imageString = canvas.toDataURL();
+        // front-end stuffs
+        // var currentTheme = document.getElementById("currentTheme").getAttribute("data-theme");
+        // console.log(currentTheme);
+        // document.getElementById("currentTheme").setAttribute("data-theme", "happiness"); // to change the theme
+        
         var dataToSave = {
             Date: new Date(),
             imageData: imageString
+            // theme: currentTheme // front-end
         }
+
 
         $.ajax({
             url:'/submitDrawing',
@@ -58,7 +65,7 @@ $(document).ready(function(){
                 // paper.project.activeLayer.removeChildren();
 
                 //Send them to the gallery
-                document.location.href = '/gallery';
+                document.location.href = '/';
 
             }
         }); // end of ajax
@@ -425,6 +432,33 @@ tool12.onMouseDrag = function(event){
     }
 }
 
+
+// tool13.minDistance = 2;
+// tool13.onMouseDrag = function(event) {
+//     var circle = new Path.Circle({
+//         center: event.middlePoint,
+//         radius: event.delta.length*2
+//     });
+//     circle.fillColor = 'black';
+// }
+
+//////////////////////////////////
+// IMAGE
+//////////////////////////////////
+
+tool13 = new Tool();
+tool13.onMouseDrag = function(event){
+
+    // The radius is the distance between the position
+    // where the user clicked and the current position
+    // of the mouse.
+    var raster = new Raster('cloud');
+    raster.position = event.downPoint;
+    raster.scale((event.downPoint - event.point).length / 1000);
+
+}
+
+
 //////////////////////////////////
 // Whenever buttons are pressed
 activateTools("#tool0", tool0);
@@ -440,6 +474,10 @@ activateTools("#tool9", tool9);
 activateTools("#tool10", tool10);
 activateTools("#tool11", tool11);
 activateTools("#tool12", tool12);
+
+activateTools("#tool13", tool13)
+
+
 
 // WIDTH
 activateWidth("#thin", 2);
