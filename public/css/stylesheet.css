@@ -28,6 +28,10 @@ body {
   background-color: yellow;
 }
 
+.hidden {
+  display: none;
+}
+
 .previousDrawing {
   width: 800px;
   height: 500px;

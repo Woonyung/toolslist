@@ -447,16 +447,18 @@ tool12.onMouseDrag = function(event){
 //////////////////////////////////
 
 tool13 = new Tool();
+
 tool13.onMouseDrag = function(event){
 
     // The radius is the distance between the position
     // where the user clicked and the current position
     // of the mouse.
-    var raster = new Raster('cloud');
+    var raster = new Raster('cloud'); // 
+
     raster.position = event.downPoint;
     raster.scale((event.downPoint - event.point).length / 1000);
-
 }
+
 
 
 //////////////////////////////////
