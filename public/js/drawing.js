@@ -446,8 +446,8 @@ tool12.onMouseDrag = function(event){
 // IMAGE
 //////////////////////////////////
 
+// cloud shapes
 tool13 = new Tool();
-
 tool13.onMouseDrag = function(event){
 
     // The radius is the distance between the position
@@ -459,7 +459,32 @@ tool13.onMouseDrag = function(event){
     raster.scale((event.downPoint - event.point).length / 1000);
 }
 
+// single circle 
+tool14 = new Tool();
+tool14.onMouseDrag = function(event){
+    var raster = new Raster('circle'); 
 
+    raster.position = event.downPoint;
+    raster.scale((event.downPoint - event.point).length / 1000); 
+}
+
+// multiple circle works in click
+tool15 = new Tool();
+tool15.onMouseDown = function(event){
+    var raster = new Raster('circles');
+    raster.scale(0.2);
+    raster.position.x = event.event.layerX;
+    raster.position.y = event.event.layerY;
+}
+
+// randomize -- maybe randomly pick from array
+tool16 = new Tool();
+tool16.onMouseDown = function(event){
+    var raster = new Raster('triangles');
+    raster.scale(0.2);
+    raster.position.x = event.event.layerX;
+    raster.position.y = event.event.layerY;   
+}
 
 //////////////////////////////////
 // Whenever buttons are pressed
@@ -477,8 +502,11 @@ activateTools("#tool10", tool10);
 activateTools("#tool11", tool11);
 activateTools("#tool12", tool12);
 
-activateTools("#tool13", tool13)
-
+// brushes with images
+activateTools("#tool13", tool13);
+activateTools("#tool14", tool14);
+activateTools("#tool15", tool15);
+activateTools("#tool16", tool16);
 
 
 // WIDTH
