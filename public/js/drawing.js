@@ -447,13 +447,14 @@ tool12.onMouseDrag = function(event){
 //////////////////////////////////
 
 // cloud shapes
+
 tool13 = new Tool();
 tool13.onMouseDrag = function(event){
 
     // The radius is the distance between the position
     // where the user clicked and the current position
     // of the mouse.
-    var raster = new Raster('cloud'); // 
+    var raster = new Raster('cloud01');
 
     raster.position = event.downPoint;
     raster.scale((event.downPoint - event.point).length / 1000);
@@ -468,14 +469,21 @@ tool14.onMouseDrag = function(event){
     raster.scale((event.downPoint - event.point).length / 1000); 
 }
 
-// multiple circle works in click
+// different look of circles
+var ellpseLists = ['randomCircles01', 'randomCircles02', 'randomCircles03'];
+
 tool15 = new Tool();
 tool15.onMouseDown = function(event){
-    var raster = new Raster('circles');
+    // pick randdom circle whenever mouse is clicked
+    var rand = ellpseLists[Math.floor(Math.random() * ellpseLists.length)];
+    console.log(rand);
+
+    var raster = new Raster(rand);
     raster.scale(0.2);
     raster.position.x = event.event.layerX;
-    raster.position.y = event.event.layerY;
+    raster.position.y = event.event.layerY;   
 }
+
 
 // randomize -- maybe randomly pick from array
 tool16 = new Tool();
@@ -485,6 +493,8 @@ tool16.onMouseDown = function(event){
     raster.position.x = event.event.layerX;
     raster.position.y = event.event.layerY;   
 }
+
+
 
 //////////////////////////////////
 // Whenever buttons are pressed
@@ -507,6 +517,7 @@ activateTools("#tool13", tool13);
 activateTools("#tool14", tool14);
 activateTools("#tool15", tool15);
 activateTools("#tool16", tool16);
+
 
 
 // WIDTH
